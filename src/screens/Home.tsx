@@ -22,9 +22,9 @@ const Home = (props: HomeProps) => {
           <TrashCounter amount={7} icon={<PaperCupIcon />} />
           <TrashCounter amount={7} icon={<PaperIcon />} />
         </div>
-        <div className="bg-blue rounded-full w-20 h-20 flex justify-center items-center">
+        <button className="bg-blue rounded-full w-20 h-20 flex justify-center items-center">
           <p className="text-white text-5xl font-bold">+</p>
-        </div>
+        </button>
       </div>
     </div>
   );
