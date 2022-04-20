@@ -1,12 +1,10 @@
 import "App.css";
-import CounterSection from "components/CounterSection";
-import Navbar from "components/Navbar";
+import Home from "screens/Home";
 
 function App() {
   return (
     <div>
-      <Navbar />
-      <CounterSection />
+      <Home />
     </div>
   );
 }
