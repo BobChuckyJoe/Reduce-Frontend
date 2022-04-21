@@ -6,6 +6,14 @@ import PaperCupIcon from "icons/PaperCupIcon";
 import PaperIcon from "icons/PaperIcon";
 import WaterBottleIcon from "icons/WaterBottleIcon";
 
+const data = [
+  ["Date", "Amount"],
+  [1, 4],
+  [2, 5],
+  [3, 7],
+  [4, 3],
+];
+
 interface HomeProps {}
 
 const Home = (props: HomeProps) => {
@@ -13,7 +21,9 @@ const Home = (props: HomeProps) => {
     <div className="bg-white">
       <Navbar />
       <div className="p-4 w-full flex flex-col items-center">
-        <GraphPreview />
+        <div className="mb-4">
+          <GraphPreview data={data} />
+        </div>
         <div className="flex flex-row space-x-4 mb-4">
           <TrashCounter amount={7} icon={<WaterBottleIcon />} />
           <TrashCounter amount={7} icon={<CanIcon />} />
