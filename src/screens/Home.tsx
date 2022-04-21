@@ -18,7 +18,7 @@ interface HomeProps {}
 
 const Home = (props: HomeProps) => {
   return (
-    <div className="bg-white">
+    <div className="bg-white min-h-screen">
       <Navbar />
       <div className="p-4 w-full flex flex-col items-center">
         <div className="mb-4">

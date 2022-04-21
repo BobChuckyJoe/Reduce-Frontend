@@ -4,7 +4,7 @@ interface NavbarProps {}
 
 const Navbar = (props: NavbarProps) => {
   return (
-    <div className="bg-blue w-full h-20 flex flex-row justify-between items-center px-5">
+    <div className="z-10 sticky top-0 bg-blue w-full h-20 flex flex-row justify-between items-center px-5">
       <div className="flex flex-col justify-between space-y-2">
         <Bar /> <Bar /> <Bar />
       </div>

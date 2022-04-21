@@ -8,15 +8,18 @@ const GraphPreview = ({ data }: GraphPreviewProps) => {
   return (
     <Chart
       chartType="LineChart"
-      width="400px"
-      height="250px"
+      width="300px"
+      height="150px"
       data={data}
       className="border-solid border-2 border-blue w-full"
       options={{
         backgroundColor: "#e5e5e5",
         legend: "none",
         colors: ["#073B4C"],
-        vAxis: { gridlines: { color: "transparent" }, ticks: [] },
+        vAxis: {
+          gridlines: { color: "transparent" },
+          ticks: [],
+        },
         hAxis: { gridlines: { color: "transparent" }, ticks: [] },
       }}
     />
