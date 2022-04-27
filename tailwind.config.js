@@ -3,9 +3,13 @@ module.exports = {
   theme: {
     colors: {
       blue: "#073B4C",
-      white: "#E5E5E5",
+      white: "#EDEDED",
     },
-    extend: {},
+    extend: {
+      borderWidth: {
+        1: "1px",
+      },
+    },
   },
   plugins: [],
 };

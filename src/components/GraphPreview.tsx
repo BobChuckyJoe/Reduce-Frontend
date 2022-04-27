@@ -13,7 +13,7 @@ const GraphPreview = ({ data }: GraphPreviewProps) => {
         height="100%"
         data={data}
         options={{
-          backgroundColor: "#e5e5e5",
+          backgroundColor: "#ededed",
           legend: "none",
           colors: ["#073B4C"],
           vAxis: {
