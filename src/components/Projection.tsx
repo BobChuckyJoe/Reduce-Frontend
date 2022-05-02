@@ -5,7 +5,7 @@ import CenteredModal from "components/CenteredModal";
 
 interface ProjectionProps {
   decrease?: boolean;
-  percent: number;
+  percent: string;
   title: string;
   info: string;
 }
