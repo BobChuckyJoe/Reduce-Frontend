@@ -1,3 +1,4 @@
+import CenteredModal from "components/CenteredModal";
 import DotsIcon from "icons/DotsIcon";
 import { useState } from "react";
 
@@ -9,27 +10,51 @@ interface TrashCounterProps {
 
 const TrashCounter = ({ icon, amount, name }: TrashCounterProps) => {
   const [numTrash, setNumTrash] = useState(amount);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex flex-col items-center rounded-2xl border-1 border-blue border-solid drop-shadow-md bg-[#e5e5e5] py-2">
-      <div className="w-full flex justify-end pr-3 mb-1">
-        <button>
-          <DotsIcon />
+    <>
+      <div className="flex flex-col items-center rounded-2xl border-1 border-blue border-solid drop-shadow-md bg-[#e5e5e5] py-2">
+        <div className="w-full flex justify-end pr-3 mb-1">
+          <button onClick={() => setIsOpen(true)}>
+            <DotsIcon />
+          </button>
+        </div>
+        <button
+          className="flex flex-row h-20 w-40 px-2 mb-1"
+          onClick={() => setNumTrash((numTrash) => numTrash + 1)}
+        >
+          <div className="rounded-l-2xl h-full w-1/2 bg-blue flex items-center justify-center">
+            {icon}
+          </div>
+          <div className="rounded-r-2xl border-solid border-y-1 border-r-1 border-blue h-full w-1/2 bg-white flex items-center justify-center">
+            <p className="text-blue font-bold text-3xl">{numTrash}</p>
+          </div>
         </button>
+        <p className="text-sm">{name}</p>
       </div>
-      <button
-        className="flex flex-row h-20 w-40 px-2 mb-1"
-        onClick={() => setNumTrash((numTrash) => numTrash + 1)}
-      >
-        <div className="rounded-l-2xl h-full w-1/2 bg-blue flex items-center justify-center">
-          {icon}
+      <CenteredModal isOpen={isOpen}>
+        <h3 className="font-semibold text-lg">Decrease trash count</h3>
+        <p className="mb-2">This will decrease your trash count by 1.</p>
+        <div className="flex space-x-2 justify-center">
+          <button
+            className="rounded-md p-2 bg-[#8bd78b]"
+            onClick={() => {
+              setNumTrash((numTrash) => numTrash - 1);
+              setIsOpen(false);
+            }}
+          >
+            Confirm
+          </button>
+          <button
+            className="rounded-md p-2 bg-[#ed7575]"
+            onClick={() => setIsOpen(false)}
+          >
+            Cancel
+          </button>
         </div>
-        <div className="rounded-r-2xl border-solid border-y-1 border-r-1 border-blue h-full w-1/2 bg-white flex items-center justify-center">
-          <p className="text-blue font-bold text-3xl">{numTrash}</p>
-        </div>
-      </button>
-      <p className="text-sm">{name}</p>
-    </div>
+      </CenteredModal>
+    </>
   );
 };
 
