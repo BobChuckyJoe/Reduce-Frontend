@@ -4,18 +4,13 @@ import InfoIcon from "icons/InfoIcon";
 import CenteredModal from "components/CenteredModal";
 
 interface ProjectionProps {
-  decrease?: boolean;
+  increase: boolean;
   percent: string;
   title: string;
   info: string;
 }
 
-const Projection = ({
-  percent,
-  title,
-  info,
-  decrease = true,
-}: ProjectionProps) => {
+const Projection = ({ percent, title, info, increase }: ProjectionProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -29,7 +24,7 @@ const Projection = ({
         <p className="text-center text-sm">{title}</p>
         <div className="flex justify-center items-center space-x-1 pb-4">
           <h3 className="font-semibold text-2xl">{percent}%</h3>
-          <ArrowDownIcon />
+          <ArrowDownIcon up={increase} />
         </div>
       </div>
       <CenteredModal isOpen={isOpen}>

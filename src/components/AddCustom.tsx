@@ -1,11 +1,13 @@
 import { useState } from "react";
 import CenteredModal from "components/CenteredModal";
 
-interface AddCustomProps {}
+interface AddCustomProps {
+  amount: number;
+}
 
 const AddCustom = (props: AddCustomProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(props.amount);
   const [type, setType] = useState("");
 
   const reset = () => {
