@@ -12,6 +12,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import UploadIcon from '@mui/icons-material/Upload';
+import GroupIcon from '@mui/icons-material/Group';
 import { useNavigate } from 'react-router';
 
 export default function NavigationList(props: any) {
@@ -82,6 +83,16 @@ export default function NavigationList(props: any) {
                 </ListItem>
                 <ListItem button onClick={
                     () => {
+                        navigate("/group")
+                    }
+                }>
+                    <ListItemIcon>
+                        <GroupIcon/>
+                    </ListItemIcon>
+                    <ListItemText primary={"Group"}/>
+                </ListItem>
+                {/* <ListItem button onClick={
+                    () => {
                         navigate("/gallery")
                     }
                 }>
@@ -89,7 +100,7 @@ export default function NavigationList(props: any) {
                         <CollectionsIcon/>
                     </ListItemIcon>
                     <ListItemText primary={"Gallery"}/>
-                </ListItem>
+                </ListItem> */}
                 <ListItem button onClick={
                     () => {
                         navigate("/upload")

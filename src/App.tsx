@@ -10,13 +10,14 @@ import Login from "screens/Login"
 function App() {
   return (
     <Routes>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/" element={<TestScreen/>}/>
         <Route path="/camera" element={<Upload/>}/>
         <Route path="/test" element={<TestScreen/>}/>
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/group" element={<Group />} />
         <Route path="/stats" element={<Home />} />
         <Route path="/login" element={<Login/>}/>
+        <Route path="/upload" element={<Upload/>}/>
     </Routes>
   )
 }

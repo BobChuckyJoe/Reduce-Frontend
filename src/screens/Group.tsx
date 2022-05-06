@@ -5,6 +5,9 @@ import CaretIcon from "icons/CaretIcon";
 import PaperCupIcon from "icons/PaperCupIcon";
 import PaperIcon from "icons/PaperIcon";
 import WaterBottleIcon from "icons/WaterBottleIcon";
+import { ThemeProvider } from "@mui/material";
+import MyAppBar from "components/MyAppBar";
+import { theme } from "components/Theme"
 
 const weeklyData = [
   [1, 196],
@@ -43,6 +46,10 @@ interface GroupProps {}
 
 const Group = (props: GroupProps) => {
   return (
+    <div>
+      <ThemeProvider theme={theme}>
+        <MyAppBar title="Groups"/>
+      </ThemeProvider>
     <div className="p-4 w-full flex flex-col items-center">
       <div className="mb-4 flex items-center space-x-2">
         <button>
@@ -91,6 +98,7 @@ const Group = (props: GroupProps) => {
           ))}
         </div>
       </div>
+    </div>
     </div>
   );
 };

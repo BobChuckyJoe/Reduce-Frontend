@@ -7,6 +7,9 @@ import PaperCupIcon from "icons/PaperCupIcon";
 import PaperIcon from "icons/PaperIcon";
 import WaterBottleIcon from "icons/WaterBottleIcon";
 import AddCustom from "components/AddCustom";
+import MyAppBar from "components/MyAppBar";
+import { ThemeProvider } from "@emotion/react";
+import { theme } from "components/Theme"
 
 const data = [
   [1, 24],
@@ -43,7 +46,12 @@ interface HomeProps {}
 
 const Home = (props: HomeProps) => {
   return (
+    <div>
+      <ThemeProvider theme={theme}>
+        <MyAppBar title="My Stats"/>
+      </ThemeProvider>
     <div className="p-4 w-full flex flex-col items-center">
+      
       <div className="mb-4 flex items-center space-x-2">
         <button>
           <CaretIcon right={false} />
@@ -91,6 +99,7 @@ const Home = (props: HomeProps) => {
         />
       </div>
       <AddCustom />
+    </div>
     </div>
   );
 };

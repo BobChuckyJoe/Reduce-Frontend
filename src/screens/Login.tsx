@@ -1,6 +1,6 @@
 import * as React from "react"
-import { ThemeProvider, Box, Alert, TextField, Button, Paper} from "@mui/material"
-import { useNavigate } from 'react-router-dom'
+import { ThemeProvider, Box, Alert, TextField, Button, Paper, Typography} from "@mui/material"
+import { Link, useNavigate } from 'react-router-dom'
 
 import { loginURL } from "Endpoints"
 import { theme } from "components/Theme"
@@ -66,6 +66,11 @@ export default function Login() {
                                         "error" }>{errorMessage.message}</Alert> }
                     <TextField id="standard-basic" label="Email" variant="standard" onChange={(e) => setEmail(e.target.value)} />
                     <TextField id="standard-basic" label="Password" variant="standard" type="password" onChange={(e) => setPassword(e.target.value)}/>
+                    <Link to="/signup"> 
+                        <Typography sx={{color:"blue"}}>
+                            Sign up!
+                        </Typography>
+                    </Link>
                     <Button type="button" color="primary" onClick={submit}>
                     Login
                     </Button>
