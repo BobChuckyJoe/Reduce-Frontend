@@ -28,7 +28,7 @@ const TrashCounter = ({ icon, amount, name }: TrashCounterProps) => {
             {icon}
           </div>
           <div className="rounded-r-2xl border-solid border-y-1 border-r-1 border-blue h-full w-1/2 bg-white flex items-center justify-center">
-            <p className="text-blue font-bold text-3xl">{numTrash}</p>
+            <p className="font-bold text-3xl">{numTrash}</p>
           </div>
         </button>
         <p className="text-sm">{name}</p>

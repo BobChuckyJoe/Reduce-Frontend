@@ -16,7 +16,7 @@ const GraphPreview = ({ data, labels }: GraphPreviewProps) => {
         options={{
           backgroundColor: "#ededed",
           legend: "none",
-          colors: ["#073B4C"],
+          colors: ["#89B789"],
           vAxis: {
             gridlines: { color: "transparent" },
             ticks: [],
