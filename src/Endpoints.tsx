@@ -1,7 +1,12 @@
-export const backendHost = "reduce.projectmonke.com"
-export const backendPort = 6969
+export const backendHost = "reduce.projectmonke.com";
+export const backendPort = 6969;
 
-export const signupURL = `https://${backendHost}:${backendPort}/signup`
-export const loginURL = `https://${backendHost}:${backendPort}/login`
-export const uploadImageURL = `https://${backendHost}:${backendPort}/upload`
-export const checkSessURL = `https://${backendHost}:${backendPort}/check_sess`
+const backendURL = `http://${backendHost}:${backendPort}`;
+export const signupURL = `${backendURL}/signup`;
+export const loginURL = `${backendURL}/login`;
+export const uploadImageURL = `${backendURL}/upload`;
+export const checkSessURL = `${backendURL}/check_sess`;
+export const getStatsURL = `${backendURL}/stats`;
+export const increaseStatsURL = `${backendURL}/stats/increase`;
+export const decreaseStatsURL = `${backendURL}/stats/decrease`;
+export const memberStatsURL = `${backendURL}/members`;

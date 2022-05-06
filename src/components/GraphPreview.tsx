@@ -2,7 +2,7 @@ import { Chart } from "react-google-charts";
 
 interface GraphPreviewProps {
   labels: string[];
-  data: number[][];
+  data: [string, number][];
 }
 
 const GraphPreview = ({ data, labels }: GraphPreviewProps) => {

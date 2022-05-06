@@ -1,4 +1,5 @@
 import CenteredModal from "components/CenteredModal";
+import { decreaseStatsURL, increaseStatsURL } from "Endpoints";
 import DotsIcon from "icons/DotsIcon";
 import { useState } from "react";
 
@@ -6,11 +7,34 @@ interface TrashCounterProps {
   icon: React.ReactElement;
   amount: number;
   name: string;
+  id: string;
 }
 
-const TrashCounter = ({ icon, amount, name }: TrashCounterProps) => {
+const TrashCounter = ({ icon, amount, name, id }: TrashCounterProps) => {
   const [numTrash, setNumTrash] = useState(amount);
   const [isOpen, setIsOpen] = useState(false);
+
+  const decrease = async () => {
+    if (numTrash > 0) {
+      setNumTrash(numTrash - 1);
+      const options = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ trash_type: id }),
+      };
+      await fetch(decreaseStatsURL, options);
+    }
+  };
+
+  const increase = async () => {
+    setNumTrash(numTrash + 1);
+    const options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ trash_type: id }),
+    };
+    await fetch(increaseStatsURL, options);
+  };
 
   return (
     <>
@@ -22,7 +46,7 @@ const TrashCounter = ({ icon, amount, name }: TrashCounterProps) => {
         </div>
         <button
           className="flex flex-row h-20 w-40 px-2 mb-1"
-          onClick={() => setNumTrash((numTrash) => numTrash + 1)}
+          onClick={increase}
         >
           <div className="rounded-l-2xl h-full w-1/2 bg-blue flex items-center justify-center">
             {icon}
@@ -40,7 +64,7 @@ const TrashCounter = ({ icon, amount, name }: TrashCounterProps) => {
           <button
             className="rounded-md p-2 bg-[#8bd78b]"
             onClick={() => {
-              setNumTrash((numTrash) => numTrash - 1);
+              decrease();
               setIsOpen(false);
             }}
           >
