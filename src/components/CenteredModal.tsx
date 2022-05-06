@@ -26,7 +26,7 @@ const CenteredModal = (props: CenteredModalProps) => {
   return (
     <Modal
       isOpen={isOpen}
-      className="absolute rounded-2xl top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-4/5 h-auto bg-white p-4 pt-2"
+      className="absolute rounded-2xl top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-4/5 max-w-lg h-auto bg-white p-4 pt-2"
       shouldCloseOnOverlayClick
       onRequestClose={close}
       appElement={document.getElementById("root") as HTMLElement}
