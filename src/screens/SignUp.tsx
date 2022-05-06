@@ -87,8 +87,8 @@ export default function SignUp(props: any) {
                     <TextField id="standard-basic" label="Email" variant="standard" onChange={getOnChange("email")} />
                     <TextField id="standard-basic" label="First Name" variant="standard" onChange={getOnChange("first_name")}/>
                     <TextField id="standard-basic" label="Last Name" variant="standard" onChange={getOnChange("last_name")}/>
-                    <TextField id="standard-basic" label="Password" variant="standard" onChange={getOnChange("password")}/>
-                    <TextField id="standard-basic" label="Confirm Password" variant="standard" onChange={getOnChange("confirm_password")}/>
+                    <TextField id="standard-basic" label="Password" variant="standard" type={"password"} onChange={getOnChange("password")}/>
+                    <TextField id="standard-basic" label="Confirm Password" variant="standard" type={"password"} onChange={getOnChange("confirm_password")}/>
                     <Button type="button" color="primary" onClick={submit}>
                     Sign Up
                     </Button>
