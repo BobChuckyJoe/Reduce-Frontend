@@ -10,8 +10,12 @@ import ListItemText from '@mui/material/ListItemText';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
+import CollectionsIcon from '@mui/icons-material/Collections';
+import UploadIcon from '@mui/icons-material/Upload';
+import { useNavigate } from 'react-router';
 
 export default function NavigationList(props: any) {
+    const navigate = useNavigate()
     let bottom_stuff = null
     if (props.signed_in) {
         bottom_stuff = 
@@ -22,7 +26,12 @@ export default function NavigationList(props: any) {
                 </ListItemIcon>
                 <ListItemText primary={`Profile`}/>
             </ListItem>
-            <ListItem button>
+            <ListItem button onClick={
+                () => {
+                    localStorage.removeItem("session_id")
+                    navigate("/")
+                }
+            }>
                 <ListItemIcon>
                     <LogoutIcon/>
                 </ListItemIcon>
@@ -33,7 +42,11 @@ export default function NavigationList(props: any) {
     else {
         bottom_stuff =
         <List>
-            <ListItem button>
+            <ListItem button onClick={
+                () => {
+                    navigate("/login")
+                }
+            }>
                 <ListItemIcon>
                     <LoginIcon/>
                 </ListItemIcon>
@@ -47,20 +60,48 @@ export default function NavigationList(props: any) {
             role="presentation"
         >
             <List>
-                <ListItem button key={"Home"}>
+                <ListItem button onClick= {
+                    () => {
+                        navigate("/")
+                    }
+                }>
                     <ListItemIcon>
                         <HomeIcon/>
                     </ListItemIcon>
                     <ListItemText primary={"Home"}/>
                 </ListItem>
-                <ListItem button key={"iodsjf"}>
+                <ListItem button onClick={
+                    () => {
+                        navigate("/stats")
+                    }
+                }>
                     <ListItemIcon>
                         <QueryStatsIcon/>
                     </ListItemIcon>
                     <ListItemText primary={"My Stats"}/>
                 </ListItem>
+                <ListItem button onClick={
+                    () => {
+                        navigate("/gallery")
+                    }
+                }>
+                    <ListItemIcon>
+                        <CollectionsIcon/>
+                    </ListItemIcon>
+                    <ListItemText primary={"Gallery"}/>
+                </ListItem>
+                <ListItem button onClick={
+                    () => {
+                        navigate("/upload")
+                    }
+                }>
+                    <ListItemIcon>
+                        <UploadIcon/>
+                    </ListItemIcon>
+                    <ListItemText primary={"Upload"}/>
+                </ListItem>
             </List>
-            <Divider />
+            <Divider/>
             {bottom_stuff}
         </Box>
     );

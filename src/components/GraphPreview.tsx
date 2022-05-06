@@ -1,17 +1,18 @@
 import { Chart } from "react-google-charts";
 
 interface GraphPreviewProps {
-  data: (string | number)[][];
+  labels: string[];
+  data: number[][];
 }
 
-const GraphPreview = ({ data }: GraphPreviewProps) => {
+const GraphPreview = ({ data, labels }: GraphPreviewProps) => {
   return (
     <div className="h-[150px] w-[300px] border-solid border-2 border-blue">
       <Chart
         chartType="LineChart"
         width="100%"
         height="100%"
-        data={data}
+        data={[labels, ...data]}
         options={{
           backgroundColor: "#ededed",
           legend: "none",

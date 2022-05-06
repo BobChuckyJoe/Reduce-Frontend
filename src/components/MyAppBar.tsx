@@ -6,10 +6,13 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 import MenuDrawer from 'components/MenuDrawer';
+import { useNavigate } from "react-router";
 
 export default function MyAppBar(props: any) {
+    const navigate = useNavigate()
     const [state, setState] = React.useState({
         "open": false
     })
@@ -35,9 +38,16 @@ export default function MyAppBar(props: any) {
                     <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    News
+                    {props.title}
                 </Typography>
-                <Button color="inherit">Login</Button>
+                {
+                    localStorage.getItem("logged_in") ?
+                        <AccountBoxIcon/>
+                        :
+                        <Button color="inherit" onClick={
+                            () => navigate("/login")
+                        }>Login</Button>        
+                }
                 </Toolbar>
             </AppBar>
         </Box>
